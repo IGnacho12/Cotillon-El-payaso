@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Productos - El Payaso</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fefefe;
+    }
+
+    header {
+      background-color: #ff4d4d;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    .productos h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .grid-productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .producto {
+      background-color: #fff0f0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .imagen-16-9 {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      overflow: hidden;
+    }
+
+    .imagen-16-9 img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .producto-info {
+      padding: 1rem;
+    }
+
+    .producto-info h3 {
+      margin: 0 0 0.5rem;
+    }
+
+    .producto-info p {
+      margin: 0.25rem 0;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎁 Productos - El Payaso</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="about.html">Sobre nosotros</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="productos">
+      <h2>Catálogo de Productos</h2>
+      <div class="grid-productos">
+        <!-- Producto 1 -->
+        <div class="producto">
+          <div class="imagen-16-9">
+            <img src="imagen1.jpg" alt="Piñata temática" />
+          </div>
+          <div class="producto-info">
+            <h3>Piñata temática</h3>
+            <p><strong>Precio:</strong> $1500</p>
+            <p>Ideal para cumpleaños infantiles. Varios modelos disponibles.</p>
+          </div>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="producto">
+          <div class="imagen-16-9">
+            <img src="imagen2.jpg" alt="Globos surtidos" />
+          </div>
+          <div class="producto-info">
+            <h3>Pack de globos</h3>
+            <p><strong>Precio:</strong> $800</p>
+            <p>Colores variados. Incluye 50 unidades resistentes y brillantes.</p>
+          </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="producto">
+          <div class="imagen-16-9">
+            <img src="imagen3.jpg" alt="Disfraz de payaso" />
+          </div>
+          <div class="producto-info">
+            <h3>Disfraz de payaso</h3>
+            <p><strong>Precio:</strong> $3200</p>
+            <p>Con peluca y maquillaje. Talles para niños y adultos.</p>
+          </div>
+        </div>
+        <!-- Más productos los podés clonar de estos -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 El Payaso - Cotillón para todas tus fiestas</p>
+  </footer>
+</body>
+</html>
