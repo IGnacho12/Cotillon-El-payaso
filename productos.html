@@ -1,149 +1,330 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Productos - El Payaso</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fefefe;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Productos - El Payaso</title>
+    <style>
+      header {
+        background-color: #ff5e57;
+        color: white;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
 
-    header {
-      background-color: #ff4d4d;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
+      header h1 {
+        margin: 0;
+      }
 
-    nav {
-      margin-top: 0.5rem;
-    }
+      nav a {
+        margin: 0 10px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
 
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-    }
+      nav a {
+        display: flex;
+        margin: 0 10px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
 
-    main {
-      padding: 2rem;
-    }
+      nav {
+        padding: 6px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        place-items: center;
+      }
 
-    .productos h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+      :root {
+        --fondo: #f9f9f9;
+        --texto: #333;
+        --primario: #ff4d4d;
+        --secundario: #ffdada;
+      }
 
-    .grid-productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        background: var(--fondo);
+        color: var(--texto);
+      }
 
-    .producto {
-      background-color: #fff0f0;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
 
-    .imagen-16-9 {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 */
-      overflow: hidden;
-    }
+      main {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
 
-    .imagen-16-9 img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+      .productos h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        color: var(--primario);
+      }
 
-    .producto-info {
-      padding: 1rem;
-    }
+      /* Estilos para el nuevo diseño en filas */
+      .grid-productos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
 
-    .producto-info h3 {
-      margin: 0 0 0.5rem;
-    }
+      .producto {
+        background-color: #fff0f0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+      }
 
-    .producto-info p {
-      margin: 0.25rem 0;
-    }
+      .imagen-16-9 {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* Relación de aspecto 16:9 */
+        overflow: hidden;
+      }
 
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 4rem;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>🎁 Productos - El Payaso</h1>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="about.html">Sobre nosotros</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
+      .imagen-16-9 img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-  <main>
-    <section class="productos">
-      <h2>Catálogo de Productos</h2>
-      <div class="grid-productos">
-        <!-- Producto 1 -->
-        <div class="producto">
-          <div class="imagen-16-9">
-            <img src="imagen1.jpg" alt="Piñata temática" />
+      .producto-info {
+        padding: 1rem;
+        flex-grow: 1; /* Asegura que la info ocupe el espacio restante */
+        display: flex;
+        flex-direction: column;
+      }
+
+      .producto-info h3 {
+        margin: 0 0 0.5rem;
+      }
+
+      .producto-info p {
+        margin: 0.25rem 0;
+      }
+
+      .producto-info .precio {
+        font-weight: bold;
+        color: #ff4d4d;
+        font-size: 1.25rem;
+      }
+
+      .producto-info button {
+        margin-top: auto; /* Empuja el botón al final del contenedor */
+        padding: 0.75rem 1rem;
+        background: #ff4d4d;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .producto-info button:hover {
+        background-color: #e63939;
+      }
+
+      #formulario-compra {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      #formulario-compra form {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 400px;
+        position: relative;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      #formulario-compra label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      #formulario-compra input,
+      #formulario-compra textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      #formulario-compra button {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      #formulario-compra button[type="submit"] {
+        background: #ff4d4d;
+        color: white;
+        margin-right: 1rem;
+      }
+
+      #formulario-compra button[type="submit"]:hover {
+        background-color: #e63939;
+      }
+
+      #formulario-compra button[type="button"] {
+        background: #ccc;
+        color: #333;
+      }
+
+      #formulario-compra button[type="button"]:hover {
+        background-color: #b3b3b3;
+      }
+
+      footer {
+        background-color: #222;
+        color: white;
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🎁 Productos - El Payaso</h1>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="about.html">Sobre nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="productos">
+        <h2>Catálogo de Productos</h2>
+        <div class="grid-productos">
+          <div class="producto">
+            <div class="imagen-16-9">
+              <img src="imagen1.jpg" alt="Piñata temática" />
+            </div>
+            <div class="producto-info">
+              <h3>Piñata temática</h3>
+              <p class="precio">Precio: $1500</p>
+              <p>
+                Ideal para cumpleaños infantiles. Varios modelos disponibles.
+              </p>
+              <button onclick="abrirFormulario('Piñata temática')">
+                Comprar
+              </button>
+            </div>
           </div>
-          <div class="producto-info">
-            <h3>Piñata temática</h3>
-            <p><strong>Precio:</strong> $1500</p>
-            <p>Ideal para cumpleaños infantiles. Varios modelos disponibles.</p>
+
+          <div class="producto">
+            <div class="imagen-16-9">
+              <img src="imagen2.jpg" alt="Globos surtidos" />
+            </div>
+            <div class="producto-info">
+              <h3>Pack de globos</h3>
+              <p class="precio">Precio: $800</p>
+              <p>
+                Colores variados. Incluye 50 unidades resistentes y brillantes.
+              </p>
+              <button onclick="abrirFormulario('Pack de globos')">
+                Comprar
+              </button>
+            </div>
+          </div>
+
+          <div class="producto">
+            <div class="imagen-16-9">
+              <img src="imagen3.jpg" alt="Disfraz de payaso" />
+            </div>
+            <div class="producto-info">
+              <h3>Disfraz de payaso</h3>
+              <p class="precio">Precio: $3200</p>
+              <p>Con peluca y maquillaje. Talles para niños y adultos.</p>
+              <button onclick="abrirFormulario('Disfraz de payaso')">
+                Comprar
+              </button>
+            </div>
           </div>
         </div>
+      </section>
+    </main>
 
-        <!-- Producto 2 -->
-        <div class="producto">
-          <div class="imagen-16-9">
-            <img src="imagen2.jpg" alt="Globos surtidos" />
-          </div>
-          <div class="producto-info">
-            <h3>Pack de globos</h3>
-            <p><strong>Precio:</strong> $800</p>
-            <p>Colores variados. Incluye 50 unidades resistentes y brillantes.</p>
-          </div>
-        </div>
+    <div id="formulario-compra">
+      <form action="https://formsubmit.co/[correo@ejemplo.com]" method="POST">
+        <h2>Completa tus datos</h2>
+        <input
+          type="hidden"
+          name="_subject"
+          value="Nueva compra desde El Payaso"
+        />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" id="producto-elegido" name="Producto" value="" />
 
-        <!-- Producto 3 -->
-        <div class="producto">
-          <div class="imagen-16-9">
-            <img src="imagen3.jpg" alt="Disfraz de payaso" />
-          </div>
-          <div class="producto-info">
-            <h3>Disfraz de payaso</h3>
-            <p><strong>Precio:</strong> $3200</p>
-            <p>Con peluca y maquillaje. Talles para niños y adultos.</p>
-          </div>
-        </div>
-        <!-- Más productos los podés clonar de estos -->
-      </div>
-    </section>
-  </main>
+        <label>Nombre:</label>
+        <input type="text" name="Nombre" required />
 
-  <footer>
-    <p>© 2025 El Payaso - Cotillón para todas tus fiestas</p>
-  </footer>
-</body>
+        <label>Email:</label>
+        <input type="email" name="Email" required />
+
+        <label>Dirección:</label>
+        <input type="text" name="Dirección" required />
+
+        <label>Mensaje o aclaraciones:</label>
+        <textarea name="Mensaje" rows="3"></textarea>
+
+        <button type="submit" style="background: #ff4d4d; color: white">
+          Enviar pedido
+        </button>
+        <button type="button" onclick="cerrarFormulario()">Cancelar</button>
+      </form>
+    </div>
+
+    <footer>
+      <p>© 2025 El Payaso - Cotillón para todas tus fiestas</p>
+    </footer>
+
+    <script>
+      function abrirFormulario(producto) {
+        document.getElementById("producto-elegido").value = producto;
+        document.getElementById("formulario-compra").style.display = "flex";
+      }
+
+      function cerrarFormulario() {
+        document.getElementById("formulario-compra").style.display = "none";
+      }
+    </script>
+  </body>
 </html>
